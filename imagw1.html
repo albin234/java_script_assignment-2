@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>image gallery</title>
+    <style type="text/css">
+        .imgStyle{
+            height: 100px;
+            width: 100px;
+            border:3px solid grey ;
+            width:200px;
+            padding: 5px;
+            filter: grayscale(100%);
+            transition: 1s;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<img height="540px" width="540px" style="border:3px solid grey" src="1%20(2).png" id="Mainimage">
+<br/>
+<div id="myDiv" onclick="changeImage(event)">
+<img class="imgStyle" src="1%20(2).png"/>
+<img class="imgStyle" src="1%20(1).jpg"/>
+<img class="imgStyle" src="1%20(3).png"/>
+<img class="imgStyle" src="1%20(1).png"/>
+<img class="imgStyle" src="1%20(3).jpg"/>
+</div>
+<script type="text/javascript">
+    var images=document.getElementById("myDiv").getElementsByTagName("IMG");
+    for(var i=0; i<images.length;i++)
+    {
+        images[i].onmouseover=function () {
+            this.style.cursor='hand';
+            this.style.borderColor='blue';
+        }
+        images[i].onmouseout=function () {
+            this.style.cursor='pointer';
+            this.style.borderColor='red'
+
+        }
+    }
+
+    function changeImage(event)
+    {
+        event=event||window.event;
+        var targetElement=event.target||event.srcElement;
+        if (targetElement.tagName=="IMG")
+        {
+            document.getElementById("Mainimage").src=targetElement.getAttribute("src");
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
